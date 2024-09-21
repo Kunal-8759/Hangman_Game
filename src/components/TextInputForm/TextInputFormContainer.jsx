@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import TextInputForm from "./TextInputForm";
 
 function TextInputFormContainer(){
@@ -6,6 +7,8 @@ function TextInputFormContainer(){
     //the variable can be changed through the setInputType method
     //default value of the variable inputType is set password.
     const [inputType,setInputType]=useState("password");
+
+    const navigate = useNavigate();//useNavigate() is a hook that return a function
 
     function handleTextInputChange(event){
         console.log("Text input Changed");
@@ -22,7 +25,8 @@ function TextInputFormContainer(){
     //bydefault when we enter the submit button in a form, the page gets refreshed so we are preventing that
     function handleFormSubmit(event){
         event.preventDefault();
-        console.log("form submitted")
+        console.log("form submitted");
+        navigate('/play');
     }
 
     return (<TextInputForm 
