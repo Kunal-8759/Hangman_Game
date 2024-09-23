@@ -3,12 +3,13 @@ import MaskedText from "../components/MaskedText/MaskedText";
 import LetterButtons from "../components/LetterButtons/LetterButtons";
 import HangMan from "../components/HangMan/HangMan";
 
-function PlayGame({ originalWord, guessedLetters, step, handleLetterClick}){
+function PlayGame({ hint , originalWord, guessedLetters, step, handleLetterClick}){
     
 
     return (
         <>
             <h1>Play Game</h1>
+            <h1>Hint : {hint} </h1>
             <MaskedText originalWord={originalWord} guessedLetters={guessedLetters}/>
 
             <div>

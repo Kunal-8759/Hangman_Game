@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 function TextInput({ type="text", label, placeholder="Enter your Input here", onChangeHandler }){
     return (
         <label>

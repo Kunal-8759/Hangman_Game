@@ -4,7 +4,8 @@ import PlayGame from "./PlayGame";
 
 function PlayGameContainer(){
     const {state} = useLocation();
-    const originalWord = state;
+    const originalWord = state.value ;
+    const hint = state.hint;
 
     //guessedLetter is an array
     const [guessedLetters,setGuessedLetters] = useState([]);
@@ -23,6 +24,7 @@ function PlayGameContainer(){
 
     return (
         <PlayGame 
+            hint={hint}
             originalWord={originalWord}
             guessedLetters={guessedLetters}
             step={step}

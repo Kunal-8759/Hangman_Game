@@ -8,6 +8,7 @@ function TextInputFormContainer(){
     //default value of the variable inputType is set password.
     const [inputType,setInputType]=useState("password");
     const [value,setValue]=useState("");
+    const [hint,setHint]=useState("");
 
     const navigate = useNavigate();//useNavigate() is a hook that return a function
 
@@ -16,6 +17,10 @@ function TextInputFormContainer(){
         console.log(event.target.value);
         setValue(event.target.value);//the value variable will be set everytime when we change the input
     }
+    function handleHintInputChange(event){
+        setHint(event.target.value);
+    }
+
     function handleShowHideClick(){
         console.log("Show/Hide button clicked");
         if(inputType === "password"){
@@ -28,8 +33,8 @@ function TextInputFormContainer(){
     function handleFormSubmit(event){
         event.preventDefault();
         if(value){
-            navigate('/play',{state: value});
-            console.log("form submitted with value : ",value.toUpperCase());
+            navigate('/play', { state: { value: value.toUpperCase(), hint: hint } });
+            console.log("form submitted with value and hint: ",value.toUpperCase(),hint);
         }
         
     }
@@ -39,6 +44,7 @@ function TextInputFormContainer(){
         handleTextInputChange={handleTextInputChange}
         handleShowHideClick={handleShowHideClick}
         handleFormSubmit={handleFormSubmit}
+        handleHintInputChange={handleHintInputChange}
     />);
 }
 
