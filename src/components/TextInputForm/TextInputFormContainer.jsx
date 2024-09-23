@@ -29,7 +29,7 @@ function TextInputFormContainer(){
         event.preventDefault();
         if(value){
             navigate('/play',{state: value});
-            console.log("form submitted with value : ",value);
+            console.log("form submitted with value : ",value.toUpperCase());
         }
         
     }
