@@ -7,12 +7,14 @@ function TextInputFormContainer(){
     //the variable can be changed through the setInputType method
     //default value of the variable inputType is set password.
     const [inputType,setInputType]=useState("password");
+    const [value,setValue]=useState("");
 
     const navigate = useNavigate();//useNavigate() is a hook that return a function
 
     function handleTextInputChange(event){
         console.log("Text input Changed");
         console.log(event.target.value);
+        setValue(event.target.value);//the value variable will be set everytime when we change the input
     }
     function handleShowHideClick(){
         console.log("Show/Hide button clicked");
@@ -25,8 +27,11 @@ function TextInputFormContainer(){
     //bydefault when we enter the submit button in a form, the page gets refreshed so we are preventing that
     function handleFormSubmit(event){
         event.preventDefault();
-        console.log("form submitted");
-        navigate('/play');
+        if(value){
+            navigate('/play',{state: value});
+            console.log("form submitted with value : ",value);
+        }
+        
     }
 
     return (<TextInputForm 
