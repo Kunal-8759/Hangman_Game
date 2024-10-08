@@ -13,8 +13,8 @@ function LetterButtons({originalWord, guessedLetters ,onLetterClick}) {
             return 'bg-blue-500';
         }
     }
-
-    const buttons = ALPHABETS.map(letter =>{
+    //rendering the list 
+    const buttons = ALPHABETS.map((letter)=>{
         return (
             <button
                 key={`button-${letter}`}

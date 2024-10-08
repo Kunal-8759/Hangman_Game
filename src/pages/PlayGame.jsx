@@ -4,8 +4,6 @@ import LetterButtons from "../components/LetterButtons/LetterButtons";
 import HangMan from "../components/HangMan/HangMan";
 
 function PlayGame({ hint , originalWord, guessedLetters, step, handleLetterClick}){
-    
-
     return (
         <>
             <h1>Play Game</h1>
@@ -20,6 +18,10 @@ function PlayGame({ hint , originalWord, guessedLetters, step, handleLetterClick
                 <HangMan step={step}/>
             </div>
 
+            <div>
+                <Link to="/" className="text-blue-400">Home Page Link</Link>
+            </div>
+            
             <div>
                 <Link to="/start" className="text-blue-400">Start Game Link</Link>
             </div>

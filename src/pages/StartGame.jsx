@@ -6,7 +6,7 @@ function StartGame(){
         <>
             <h1>Start page of the game</h1>
             <TextInputFormContainer />
-            <Link to="/play" className="text-blue-400">Play Game Link</Link>
+            <Link to="/" className="text-blue-400">Home Page Link</Link>
         </>
     );
 }
