@@ -52,14 +52,14 @@ function ReactModal({ step, originalWord, guessedLetters , onNewSinglePlayerGame
                         </div>
                     )}
 
-                    <div className="mt-6 flex flex-col space-y-4 justify-center">
+                    <div className="mt-6 flex flex-col space-y-4 justify-center items-center">
                     {/* Single Player Option */}
-                    <button onClick={handleSinglePlayer} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">
+                    <button onClick={handleSinglePlayer} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md w-full text-center">
                         Play SinglePlayer Mode
                     </button>
 
                     {/* Multiplayer Option */}
-                    <Link to={'/start'} className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md">
+                    <Link to={'/start'} className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md w-full text-center">
                         Play Multiplayer Mode
                     </Link>
                     </div>

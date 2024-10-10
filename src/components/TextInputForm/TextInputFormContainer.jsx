@@ -21,7 +21,8 @@ function TextInputFormContainer(){
         setHint(event.target.value);
     }
 
-    function handleShowHideClick(){
+    function handleShowHideClick(event){
+        event.preventDefault();
         console.log("Show/Hide button clicked");
         if(inputType === "password"){
             setInputType("text");
