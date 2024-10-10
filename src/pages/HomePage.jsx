@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
-import { useEffect , useState } from "react";
+import { useEffect  } from "react";
+import useWordStore from "../stores/WordStores";
 
 function HomePage() {
-    const [value,setValue]=useState("");
-    const [hint,setHint]=useState("");
+    
+    const { setWordList, setWord } = useWordStore(); // coming from the store
 
     async function downloadWords(){
         const response = await fetch("http://localhost:3000/words");
         const data = await response.json();
 
+        setWordList([...data]);
+
         const index= Math.floor(Math.random()*data.length);
         const wordSelected = data[index];
 
         console.log(wordSelected);
-        setValue(wordSelected.wordSelected);
-        setHint(wordSelected.Hint);
+        setWord(wordSelected);
+        
     }
 
     //this useEffeect will run when HomePage component is mounted
@@ -27,7 +30,7 @@ function HomePage() {
 
   return (
     <>
-        <Link to="/play" state={{value : value.toUpperCase() , hint :hint }}>
+        <Link to="/play">
             <Button text={"Single Player"}/>
         </Link>
 

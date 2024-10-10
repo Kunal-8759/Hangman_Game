@@ -1,12 +1,27 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import PlayGame from "./PlayGame";
+import useWordStore from "../stores/WordStores";
 
 function PlayGameContainer(){
-    const {state} = useLocation();
-    const originalWord = state.value ;
-    const hint = state.hint;
 
+    const { wordList, word ,setWord} = useWordStore();//coming from the store or for the singlePlayer
+    const {state} = useLocation();//for the multiPlayer
+
+    const originalWord = state?.value || word?.wordSelected.toUpperCase();
+    const hint = state?.hint || word?.Hint;
+
+    //this function will be called when we click on the new game button for single Player
+    function onNewSinglePlayerGame(){
+        const index = Math.floor(Math.random()*wordList.length);
+        const wordSelected = wordList[index];
+        console.log(wordSelected);
+        setWord(wordSelected);
+        setGuessedLetters([]);
+        setStep(0);
+    }
+
+    
     //guessedLetter is an array
     const [guessedLetters,setGuessedLetters] = useState([]);
     const [step,setStep] = useState(0);
@@ -29,7 +44,8 @@ function PlayGameContainer(){
             guessedLetters={guessedLetters}
             step={step}
             handleLetterClick={handleLetterClick}
-        
+            onNewSinglePlayerGame={onNewSinglePlayerGame}
+
         />
     );
 }
