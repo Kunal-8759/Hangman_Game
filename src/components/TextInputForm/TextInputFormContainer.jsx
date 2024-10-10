@@ -33,7 +33,7 @@ function TextInputFormContainer(){
     function handleFormSubmit(event){
         event.preventDefault();
         if(value){
-            navigate('/play', { state: { value: value.toUpperCase(), hint: hint } });
+            navigate('/play', { state: { value: value , hint: hint } });
             console.log("form submitted with value and hint: ",value.toUpperCase(),hint);
         }
         

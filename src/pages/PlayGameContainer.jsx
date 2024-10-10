@@ -8,7 +8,7 @@ function PlayGameContainer(){
     const { wordList, word ,setWord} = useWordStore();//coming from the store or for the singlePlayer
     const {state} = useLocation();//for the multiPlayer
 
-    const originalWord = state?.value || word?.wordSelected.toUpperCase();
+    var originalWord = state?.value || word?.wordSelected;
     const hint = state?.hint || word?.Hint;
 
     //this function will be called when we click on the new game button for single Player
@@ -37,16 +37,23 @@ function PlayGameContainer(){
         setGuessedLetters([...guessedLetters,event.target.value]);
     }
 
-    return (
-        <PlayGame 
-            hint={hint}
-            originalWord={originalWord}
-            guessedLetters={guessedLetters}
-            step={step}
-            handleLetterClick={handleLetterClick}
-            onNewSinglePlayerGame={onNewSinglePlayerGame}
 
-        />
+    originalWord = originalWord?.toUpperCase();
+    
+
+    return (
+        <>
+            { originalWord && 
+                <PlayGame 
+                hint={hint}
+                originalWord={originalWord}
+                guessedLetters={guessedLetters}
+                step={step}
+                handleLetterClick={handleLetterClick}
+                onNewSinglePlayerGame={onNewSinglePlayerGame}
+                />
+            }
+        </>
     );
 }
 
