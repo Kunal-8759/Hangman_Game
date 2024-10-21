@@ -2,18 +2,29 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import { useEffect } from "react";
 import useWordStore from "../stores/WordStores";
+import words from "../assets/words/words";
 
 function HomePage() {
   const { setWordList, setWord } = useWordStore();
 
   async function downloadWords() {
-    const response = await fetch("http://localhost:3000/words");
-    const data = await response.json();
 
-    setWordList([...data]);
+    //when we need to interact from the json server to fetch the words
+    
+    // const response = await fetch("http://localhost:3000/words");
+    // const data = await response.json();
 
-    const index = Math.floor(Math.random() * data.length);
-    const wordSelected = data[index];
+    // setWordList([...data]);
+
+    // const index = Math.floor(Math.random() * data.length);
+    // const wordSelected = data[index];
+
+    // console.log(wordSelected);
+    // setWord(wordSelected);
+
+    setWordList([...words]);
+    const index = Math.floor(Math.random() * words.length);
+    const wordSelected = words[index];
 
     console.log(wordSelected);
     setWord(wordSelected);
