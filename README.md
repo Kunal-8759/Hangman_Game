@@ -1,11 +1,20 @@
-# React + Vite
+### Installation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To get started with this project, clone the repository and install the dependencies:
 
-Currently, two official plugins are available:
+```bash
+git clone https://github.com/yourusername/Hangman_Game.git
+cd Hangman_Game
+npm install
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Running the Application
+
+To run the application in development mode, use the following command:
+
+```bash
+npm run dev
+```
 
 
 ### Backend Server
@@ -19,4 +28,9 @@ npx json-server --watch db.json --port 3000
 ```
 
 Make sure to replace `db.json` with the path to your JSON file.
+
+### Technologies Used
+react-dom, react-router-dom, json-server
+
+
 
